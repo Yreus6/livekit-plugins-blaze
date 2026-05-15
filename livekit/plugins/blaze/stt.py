@@ -44,6 +44,7 @@ class STTOptions:
     include_timestamps: bool
     enable_refinement: bool
     sample_rate: STTRealtimeSampleRates
+    enable_log: bool
 
 
 class STT(stt.STT):
@@ -58,6 +59,7 @@ class STT(stt.STT):
         model_id: NotGivenOr[BlazeSTTModels | str] = NOT_GIVEN,
         include_timestamps: bool = False,
         enable_refinement: bool = False,
+        enable_log: bool = False,
     ) -> None:
         """
         Create a new instance of Blaze STT.
@@ -97,6 +99,7 @@ class STT(stt.STT):
             include_timestamps=include_timestamps,
             enable_refinement=enable_refinement,
             model_id=model_id,
+            enable_log=enable_log,
         )
         self._session = http_session
         self._streams = weakref.WeakSet[SpeechStream]()
@@ -285,6 +288,7 @@ class SpeechStream(stt.SpeechStream):
             "token": self._opts.api_key,
             "language": self._opts.language_code or "vi",
             "model": self._opts.model_id,
+            "enable_log": self._opts.enable_log,
         }
         await ws.send_str(json.dumps(payload))
 

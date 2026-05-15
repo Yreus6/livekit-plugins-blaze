@@ -121,7 +121,7 @@ class TTS(tts.TTS):
         language: NotGivenOr[str] = NOT_GIVEN,
     ) -> None:
         """
-        Create a new instance of Blake TTS.
+        Create a new instance of Blaze TTS.
 
         Args:
             voice_id (str): Voice ID. Defaults to `DEFAULT_VOICE_ID`.

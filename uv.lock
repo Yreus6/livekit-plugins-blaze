@@ -1015,7 +1015,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "livekit-agents", specifier = ">=1.6.3" }]
+requires-dist = [{ name = "livekit-agents", specifier = ">=1.5.14" }]
 
 [[package]]
 name = "livekit-protocol"

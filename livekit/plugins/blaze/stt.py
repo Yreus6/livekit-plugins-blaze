@@ -488,5 +488,7 @@ class SpeechStream(stt.SpeechStream):
                 error_msg,
             )
             raise APIConnectionError(f"{message_type}: {error_msg}")
+        elif message_type == "successful-authentication":
+            logger.debug("Received message type successful-authentication: %s", data)
         else:
             logger.warning("Blaze STT unknown message type: %s, data: %s", message_type, data)
